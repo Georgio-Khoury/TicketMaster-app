@@ -166,9 +166,6 @@ async def refresh_token(
     token_request: RefreshTokenRequest,
     db: Session = Depends(get_db)
 ):
-    """
-    Refresh access token using refresh token
-    """
     try:
         logger.info("Attempting to refresh access token")
         
@@ -213,28 +210,9 @@ async def refresh_token(
         )
 
 
-@router.post("/logout")
-async def logout(request: Request):
-    """
-    Logout user and clear session
-    Note: In a production system, you'd also want to:
-    1. Revoke the refresh token in the database
-    2. Add the access token to a blacklist
-    """
-    try:
-        request.session.clear()
-        logger.info("User logged out successfully")
-        return {"message": "Logged out successfully"}
-    except Exception as e:
-        logger.error(f"Error during logout: {e}")
-        return {"message": "Logged out successfully"}  # Still return success
-
-
 @router.get("/validate")
 async def validate_token(request: Request, db: Session = Depends(get_db)):
-    """
-    Validate current access token from Authorization header
-    """
+
     try:
         auth_header = request.headers.get("Authorization")
         if not auth_header or not auth_header.startswith("Bearer "):
