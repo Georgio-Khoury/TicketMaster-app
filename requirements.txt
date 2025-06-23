@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+python-dotenv
+pydantic
+sqlalchemy
+alembic
+psycopg2-binary
+asyncpg
+authlib
+fastapi-users
+passlib
+python-jose[cryptography]
+apscheduler
+httpx
+starlette
+itsdangerous
+pytest
