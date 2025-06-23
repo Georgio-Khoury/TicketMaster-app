@@ -42,8 +42,10 @@ For the TICKETMASTER_KEY, you must create a TicketMaster account here : https://
 After creating the account you will receive an API key.
 
 
-Now that you have your .env setup in the root directory, open your terminal inside the root directory and run the following command:
+Now that you have your .env setup in the root directory, open your terminal inside the root directory and run the following commands:
+
 docker-compose build
+
 docker-compose up
 
 You should have the database and the web service both running.
