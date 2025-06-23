@@ -43,7 +43,7 @@ You should have the database and the web service both running.
 You can access the backend at http://localhost:8000
 
 
-###### API Usage:
+## API Usage:
 **http://localhost:8000/events**
 
 #### Pagination
@@ -79,4 +79,6 @@ Must be authenticated to access this endpoint (have a valid Bearer token). Saves
 Must be authenticated to access this endpoint (have a valid Bearer Token). Retrieves user's saved events.
 
 
-
+##TicketMaster API calls
+"The system calls the Ticketmaster API every 20 minutes to retrieve a specified number of events based on a predefined list of keywords. This periodic task is scheduled using the BackgroundScheduler within an asynccontextmanager." 
+The server utilizes an event caching mechanism to avoid redundant database operations and API processing for events that are already in the database. Searching through the cache for existing event IDs reduces the need for database querying to check for existing events and also eliminates unnecessary insertion tries that will fail due to duplication into the database. 
