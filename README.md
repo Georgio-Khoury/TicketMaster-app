@@ -16,12 +16,19 @@ Create a `.env` file in the project root with the following structure:
 
 
 GOOGLE_CLIENT_ID=your_google_client_id
+
 GOOGLE_CLIENT_SECRET=your_google_client_secret
+
 GOOGLE_REDIRECT_URI=http://localhost:8000/auth/google/callback
+
 DATABASE_URL=postgresql://postgres:postgres@db:5432/ticketmaster
+
 POSTGRES_DB=ticketmaster
+
 POSTGRES_USER=postgres
+
 POSTGRES_PASSWORD=postgres
+
 TICKETMASTER_KEY=your_ticketmaster_api_key
 
 Replace the GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET with the appropriate values from your Google Cloud Console: https://console.cloud.google.com/
