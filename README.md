@@ -88,6 +88,14 @@ Must be authenticated to access this endpoint (have a valid Bearer token). Saves
 Must be authenticated to access this endpoint (have a valid Bearer Token). Retrieves user's saved events.
 
 
-##TicketMaster API calls
+## TicketMaster API calls
+
 "The system calls the Ticketmaster API every 20 minutes to retrieve a specified number of events based on a predefined list of keywords. This periodic task is scheduled using the BackgroundScheduler within an asynccontextmanager." 
+
 The server utilizes an event caching mechanism to avoid redundant database operations and API processing for events that are already in the database. Searching through the cache for existing event IDs reduces the need for database querying to check for existing events and also eliminates unnecessary insertion tries that will fail due to duplication into the database. 
+
+## Software Architecture and Technologies used
+
+The project follows a separation of concerns architecture to maintain clean, scalable, and maintainable code. The system is divided into distinct layers: **Routers** handle the incoming HTTP requests and route them to the appropriate service functions, **Services** contain the business logic, and **Repositories** are responsible for direct database interactions. This design ensures each layer has a single responsibility, making the application easier to test and modify. 
+
+The project is built using FastAPI for high-performance API handling, PostgreSQL as the relational database, and SQLAlchemy as the ORM for managing database operations. Alembic is used to handle database migrations, ensuring schema changes are tracked and version-controlled. For testing, Pytest is used to validate the functionality of both services and routers, helping maintain reliability and catch issues early in development. This combination of technologies and structured design supports a robust and efficient backend system.
